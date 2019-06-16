@@ -1,0 +1,24 @@
+{
+  "name": "ttgo",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "ncc build src/index.tsx -o dist/index.js",
+    "start": "nodemon index.tsx"
+  },
+  "dependencies": {
+    "@types/node": "^12.0.8",
+    "fuse.js": "^3.4.5",
+    "ink": "^2.2.0",
+    "meow": "^5.0.0",
+    "node-fetch": "^2.6.0",
+    "react": "^16.8.6"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.19.1",
+    "nodemon": "^1.19.1",
+    "prettier": "^1.18.2",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.2"
+  }
+}

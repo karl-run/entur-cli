@@ -25,6 +25,7 @@ const cli = meow(
 )
 
 if (cli.input.length > 0) {
+  console.debug('Input', cli.input)
   ;(async () => {
     render(
       <Ui stop={cli.input.join(' ')} refreshStops={cli.flags.refreshStops} />,

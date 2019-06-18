@@ -11,6 +11,7 @@ const cli = meow(
   Example
     $ entur Lysaker
   Options
+    --id -i Supply a specific stop id
     --refresh-stops -r Refresh cached stops
 `,
   {
@@ -19,18 +20,27 @@ const cli = meow(
         type: 'boolean',
         alias: 'r',
       },
+      id: {
+        type: 'string',
+        alias: 'i',
+      },
     },
     autoHelp: true,
   },
 )
 
-if (cli.input.length > 0) {
-  console.debug('Input', cli.input)
+if (cli.input.length > 0 || cli.flags.id) {
+  console.debug('Input', cli.input, cli.flags)
   ;(async () => {
     render(
-      <Ui stop={cli.input.join(' ')} refreshStops={cli.flags.refreshStops} />,
+      <Ui
+        search={cli.input.join(' ')}
+        specific={cli.flags.id}
+        refreshStops={cli.flags.refreshStops}
+      />,
     )
   })()
 } else {
+  console.debug('Input', cli.input, cli.flags)
   cli.showHelp()
 }
